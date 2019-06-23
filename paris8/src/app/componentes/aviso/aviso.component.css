@@ -1,0 +1,60 @@
+.rojo .modal-title{
+    color: red;
+    font-weight: bold;
+}
+
+.rojo .modal-title::after{
+    content: '\f06a';
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    padding-right: 0.5em;
+
+}
+.rojo button{
+    color: white;
+    background-color: red;
+    border-radius: 15px;
+    padding:0 5%;
+}
+.blue .modal-title{
+    color:blue;
+}
+.blue button{
+    color: white;
+    background-color: blue;
+    border-radius: 15px;
+    padding:0 5%;
+}
+.blue .modal-title::after{
+    content: '\f058';
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    padding-right: 0.5em;
+
+}
+.confirm .modal-title{
+    color: violet;
+    font-weight:bold;
+}
+.confirm .accept{
+    color: white;
+    background-color: blue;
+    padding:0 5%;
+}
+.confirm .cancel{
+    color: white;
+    background-color: red;
+    padding:0 5%;
+}
+.confirm .accept:hover{
+    color: grey;
+    background-color:lightskyblue;
+}
+.confirm .cancel:hover{
+    color: gray;
+    background-color: lightcoral;
+}

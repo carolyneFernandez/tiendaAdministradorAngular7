@@ -1,0 +1,42 @@
+<div class="row align-items-center" >
+
+    <div class="col-md-2 col-sm-4 mt-4 ">
+        <img src="../../../assets/generales/fondo.jpg"  class="user rounded-circle " >
+        
+    </div>
+    <div class="col-md-8 col-sm-6 mt-4 ml-2" >
+        <div class="jumbotron jumbotron-fluid comentario">
+            <form class="form-horizontal" #comentarioForm="ngForm" (ngSubmit)="onSubmit(comentarioForm.value)">
+                <div class="form-group" hidden="true">
+                        <input type="text" hidden="true" class="form-control" [(ngModel)]="comentario.IDCLIENTE" name="IDCLIENTE" #IDCLIENTE="ngModel">
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Danos tu opinion" required class="form-control" required 
+                    [(ngModel)]="comentario.COMENTARIO" name="COMENTARIO" #COMENTARIO="ngModel" ></textarea>
+
+                        <div [hidden]="COMENTARIO.valid || COMENTARIO.pristine" class="alert alert-danger">
+                            Valor de la cantidad es obligatorio
+                        </div>
+                </div>
+                <div class="form-group">
+                        <ngb-rating [(rate)]="comentario.PUNTAJE" [(ngModel)]="comentario.PUNTAJE"  name="PUNTAJE" #PUNTAJE="ngModel">
+                                <ng-template let-fill="fill" let-index="index" >
+                                    <span class="star" [class.filled]="fill === 100" [class.bad]="index < 3">&#9733;</span>
+                                </ng-template>
+                            </ngb-rating>
+                            
+                            
+                                <pre>Valoración: <b>{{comentario.PUNTAJE}}</b></pre>
+
+                </div> 
+                 <hr>
+                <div class="form-group">
+                    <button class="btn btn-primary mr-4" type="submit"  [disabled]="!comentarioForm.valid">
+                      Compartir
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+  

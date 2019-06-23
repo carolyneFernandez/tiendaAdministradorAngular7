@@ -1,0 +1,220 @@
+.homeImagen{
+    
+    width: 100%;
+}
+.ornamental {
+    display: inline-block;
+    width: 72px;
+    color: inherit;
+    border:1px solid;
+}
+
+img{
+    box-shadow:0 6px 12px rgba(0,0,0,0.65)
+}
+.bloc-composite-main-content{
+    color: #fff;
+    position: relative;
+    
+    padding: 40px;
+    background-size: cover;
+
+}
+footer.nb-footer {
+    background: #222;
+    border-top: 4px solid #b78c33; 
+}
+    footer.nb-footer .about {
+    margin: 0 auto;
+    margin-top: 40px;
+    max-width: 1170px;
+    text-align: center; 
+}
+    footer.nb-footer .about p,footer.nb-footer .about h2 {
+    font-size: 13px;
+    color: #999;
+    margin-top: 30px;
+ }
+    footer.nb-footer .about .social-media {
+    margin-top: 15px;
+ }
+ footer.nb-footer .about .social-media ul li{
+    list-style: none;
+
+ }
+footer.nb-footer .about .social-media ul li a {
+    display: inline-block;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    border-radius: 50%;
+    font-size: 16px;
+    color: #b78c33;
+    border: 1px solid rgba(255, 255, 255, 0.3); }
+footer.nb-footer .about .social-media ul li a:hover {
+    background: #b78c33;
+    color: #fff;
+    border-color: #b78c33; 
+}
+.slider img{
+    width: 100%;
+    height: 500px;
+}
+
+
+
+
+/*sobre nosotros*/
+
+.bg-about {
+	margin: auto 50px;
+    background-color: white;
+    padding-top: 4%;
+
+}
+
+#about h3 {
+	color: #E94B3C;
+    
+
+}
+
+#about .restaurant-history p {
+	padding: 20px 80px;
+	font-weight:bold ;
+	color: #444;
+}
+
+p.first::first-letter {
+    font-size: 150%;
+    color: #000;
+}
+
+#about h1 {
+	padding-top: 35px;
+}
+
+
+#about .image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+
+
+#about .hov-img * {
+	box-sizing: border-box;
+}
+
+#about .hov-img {
+	position: relative;
+	display: inline-block;
+	overflow: hidden;
+	max-width: 100%;
+	height: auto;
+	margin-bottom: 10px;
+}
+
+#about .hov-img img {
+	max-width: 100%;
+}
+
+#about .hov-img-bottom {
+	display: block;
+}
+
+#about .hov-img-top {
+	opacity: 0;
+	position: absolute;
+	top: 0;
+    right: 0;
+	bottom: 0;
+    left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.6);
+	color: #fff;
+	-moz-transition: all 0.4s ease-in-out 0s;
+	-webkit-transition: all 0.4s ease-in-out 0s;
+	-ms-transition: all 0.4s ease-in-out 0s;
+	transition: all 0.4s ease-in-out 0s;
+}
+
+#about .hov-img:hover .hov-img-top {
+	opacity: 1;
+}
+
+#about .hov-img-text {
+	text-align: center;
+	font-size: 18px;
+	display: inline-block;
+	position: absolute;
+	text-shadow: black .2em .2em .2em; 
+	top: 50%;
+	left: 50%;
+	-moz-transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+
+#about .hov-img-text p {
+	font-size: 15px;
+	line-height: 1.2em;
+}
+
+#about .hov-img-slideup {
+	-moz-transform: translateY(100%);
+	-webkit-transform: translateY(100%);
+	-ms-transform: translateY(100%);
+	transform: translateY(100%);
+}
+
+#about .hov-img:hover .hov-img-slideup {
+	-moz-transform: translateY(0);
+	-webkit-transform: translateY(0);
+	-ms-transform: translateY(0);
+	transform: translateY(0);
+}
+
+
+
+/*---gallery---*/
+
+#photos {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+#photos img {
+    width: 100%;
+    height: 15em;
+    border-radius: 0.8em;
+    transition: transform 2s ease-in-out;
+}
+
+#photos img:hover {
+    opacity: 0.8;
+    transform: scale(1.15);
+}
+
+#photos h2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-top: 0.15em solid black;
+    border-bottom: 0.15em solid black;
+    color: red;
+    display: none;
+}
+
+#photos .col-lg-4:hover h2 {
+    display: block;
+}
+
+.portfolio-item {
+    position: relative;
+    margin-bottom: 2rem;
+}

@@ -1,0 +1,163 @@
+<div class="row mt-4">
+        <div class="col-lg-5 mb-4 ">
+                <form class="form-horizontal">
+                        <div class="form-header ">
+                                <h3><i class="fa fa-envelope"></i>Escribenos:</h3>
+                        </div>
+                        <p>Si tienes cualquier duda o deseas reservar con nosotros, escribenos.</p>
+                    
+                        <div class="form-group">
+                                <i class="fa fa-user prefix grey-text"></i>
+                                <label for="form-name">Nombre</label>   
+                                <input type="text" id="form-name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                                <i class="fa fa-envelope prefix grey-text"></i>
+                                <label>Email: </label>
+                                <input type="text" id="form-email" class="form-control">
+                        </div>
+                               
+                        <div class="form-group">
+                                        <i class="fa fa-tag prefix grey-text"></i>
+                                        <input type="text" id="form-Subject" class="form-control" required>
+                                        <label for="form-Subject">Objetivo</label>
+                        </div>
+                                
+                        <div class="form-group">
+                                        <i class="fa fa-pencil-alt prefix grey-text"></i>
+                                        <textarea id="form-text" class="form-control md-textarea" rows="3"></textarea>
+                                        <label for="form-text">Mensaje</label>
+                        </div>
+                                
+                        <div> 
+                                <button class="btn btn-primary mr-3" type="button"  (click)="abrirMensaje()">
+                                         Enviar
+                                </button>
+                        </div>
+                                
+                </form>
+                                
+        </div>
+        <div class="col-lg-7 mb-4">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10499.864019875109!2d2.2888673339182275!3d48.858858636005984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x7120a7ba230b75e0!2s58+Tour+Eiffel!5e0!3m2!1ses!2ses!4v1559673772438!5m2!1ses!2ses"
+                        width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+
+                <div class="row text-center mt-4">
+                        <div class="col-md-4">
+                        <a class="btn-floating blue accent-1"><i class="fa fa-map-marker"></i></a>
+                        <p>C/ Miroquesa 48,Paris</p>
+                        <p>Francia</p>
+                        </div>
+                        
+                        <div class="col-md-4">
+                        <a class="btn-floating blue accent-1"><i class="fa fa-phone"></i></a>
+                        <p>+34 655179736</p>
+                        <p>Lunes - Sabado, 8:00-22:00</p>
+                        </div>
+
+                        <div class="col-md-4">
+                        <a class="btn-floating blue accent-1"><i class="fa fa-envelope"></i></a>
+                        <p>info@paris8.com</p>
+                        <p>soporte@paris8.com</p>
+                        </div>
+                </div>
+        </div>
+
+</div>
+<!---
+<div class="row mt-4">
+        <div class="col-lg-5 mb-4 ">
+        <form class="form-horizontal" #personaForm="ngForm">
+
+                <div class="form-header ">
+                        <h3><i class="fa fa-envelope"></i>Escribenos:</h3>
+                </div>
+
+                <p>Si tienes cualquier duda o deseas reservar con nosotros, escribenos.</p>
+                <br>
+                        <div class="form-body">
+
+                <div>
+                                <i class="fa fa-user prefix grey-text"></i>
+                                <input type="text" id="form-name" class="form-control">
+                                <label for="form-name">Nombre</label>
+                        </div>
+        
+                        <div>
+                                <i class="fa fa-envelope prefix grey-text"></i>
+                                <input type="text" id="form-email" class="form-control">
+                                <label for="form-email">Email</label>
+                        </div>
+        
+                        <div>
+                                <i class="fa fa-tag prefix grey-text"></i>
+                                <input type="text" id="form-Subject" class="form-control">
+                                <label for="form-Subject">Objetivo</label>
+                        </div>
+        
+                        <div>
+                                <i class="fa fa-pencil-alt prefix grey-text"></i>
+                                <textarea id="form-text" class="form-control md-textarea" rows="3"></textarea>
+                                <label for="form-text">Mensaje</label>
+                        </div>
+        
+                        <div class="text-center mt-4">
+                                <button type="button" class="btn btn-primary" (click)="abrirMensaje()">Enviar</button>
+                        </div>
+        </form>
+        </div>
+        
+        
+        <div class="col-lg-7 ">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10499.864019875109!2d2.2888673339182275!3d48.858858636005984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x7120a7ba230b75e0!2s58+Tour+Eiffel!5e0!3m2!1ses!2ses!4v1559673772438!5m2!1ses!2ses"
+                        width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+
+        <div class="row text-center mt-4">
+                <div class="col-md-4">
+                <a class="btn-floating blue accent-1"><i class="fa fa-map-marker"></i></a>
+                <p>C/ Miroquesa 48,Paris</p>
+                <p>Francia</p>
+                </div>
+                
+                <div class="col-md-4">
+                <a class="btn-floating blue accent-1"><i class="fa fa-phone"></i></a>
+                <p>+34 655179736</p>
+                <p>Lunes - Sabado, 8:00-22:00</p>
+                </div>
+
+                <div class="col-md-4">
+                <a class="btn-floating blue accent-1"><i class="fa fa-envelope"></i></a>
+                <p>info@paris8.com</p>
+                <p>soporte@paris8.com</p>
+                </div>
+                </div>
+
+        </div>
+</div>
+
+</section>.---->
+<footer class="nb-footer">
+<div class="container">
+        <div class="row">
+        <div class="col-sm-12">
+        <div class="about">
+                <h2 class="h2">¿POR QUÉ ESTE NOMBRE? </h2>
+                <hr class="ornamental">
+                <p>"Paris 8" pero ¿por qué este nombre?  Cuente 57 metros sobre el suelo, 
+                agregue 1 metro, la altura del piano de la cocina  y estará allí ...</p>
+                <div class="social-media">
+                <ul style="display: inline-flex;">
+                        <li><a href="https://www.facebook.com/" title=""><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="https://twitter.com/?lang=es/" title=""><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="https://www.google.es/" title=""><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="https://www.linkedin.com/feed/" title=""><i class="fa fa-linkedin"></i></a></li>
+                </ul>
+                </div>
+        </div>
+        </div>        
+        </div>
+</div>
+
+</footer>

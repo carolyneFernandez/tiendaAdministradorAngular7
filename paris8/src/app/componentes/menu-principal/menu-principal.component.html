@@ -1,0 +1,47 @@
+
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+  <a *ngIf="navBar.login && !rolUser" class="navbar-brand" routerLink="/adminHome" >Panel de Administracion</a>
+  <button class="navbar-toggler" type="button" (click)="navBar.isNavbarCollapsed = !navBar.isNavbarCollapsed" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+  <div [ngbCollapse]="navBar.isNavbarCollapsed" class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div *ngIf="!navBar.login  || rolUser"  class="navbar-nav">
+        <a  class="nav-item nav-link active" routerLink="/" routerLinkActive="active">INICIO<span class="sr-only">(current)</span></a><!-- routerLinkActive="active"-->
+
+    <a  class="nav-item nav-link active" routerLink="/contacto">Contactanos <span class="sr-only">(current)</span></a>
+    <a  class="nav-item nav-link active" routerLink="/preguntas" >Preguntas Frecuentes <span class="sr-only">(current)</span></a>
+
+  </div>
+
+    <div *ngIf="navBar.login && rolUser" class="navbar-nav">
+        <a  class="nav-item nav-link active" routerLink="/comentarios" routerLinkActive="active">Comentarios<span class="sr-only">(current)</span></a><!-- routerLinkActive="active"-->
+
+        <a class="nav-item nav-link active" routerLink="/menu">Nuestra carta <span class="sr-only">(current)</span></a>
+        <li class="nav-item dropdown">
+          
+            <a class="nav-link dropdown-toggle" style="cursor: pointer;" (click)="navBar.perfil.dropdown = !navBar.perfil.dropdown" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Perfil
+                </a>
+            <div [ngbCollapse]="navBar.perfil.dropdown" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" routerLink="/perfil" (click)="navBar.perfil.dropdown = !navBar.perfil.dropdown">
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span><span>Ver perfil</span></a>
+                <a class="dropdown-item"  (click)="abrirMensajeConfirm()">
+                  <span class="glyphicon glyphicon-search" aria-hidden="true"></span><span>Cerrar Session</span></a>
+              </div>
+          </li>
+    </div>
+    <div *ngIf="navBar.login  && !rolUser"  class="navbar-nav">
+        <a  class="nav-item nav-link active" routerLink="/categoria-listar" >Categorias <span class="sr-only">(current)</span></a>
+
+        <a  class="nav-item nav-link active" routerLink="/personas-listar" >Personas <span class="sr-only">(current)</span></a>
+        <a  class="nav-item nav-link active" routerLink="/producto-listar">Producto <span class="sr-only">(current)</span></a>
+        <a  class="nav-item nav-link active" routerLink="/factura-listar" >Facturas <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" (click)="abrirMensajeConfirm()" style="cursor: pointer;">LOGOUT</a>
+    </div>
+
+    <a *ngIf="!navBar.login"  class="nav-item nav-link" (click)="abrirLogin()" style="cursor: pointer;">LOGIN</a>
+
+    <span *ngIf="navBar.login" class="nav-item nav-link">({{navBar.usuario}})</span>
+
+  </div>
+</nav>

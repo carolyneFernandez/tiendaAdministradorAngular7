@@ -1,0 +1,23 @@
+<table class="table table-bordered table-responsive-md table-striped text-center mt-4">
+  <tr>
+    <th colspan="3">En este sector podras ver la lista de todas las facturas y podras acceder a sus detalles </th>
+    <th colspan="2"> <a  (click)="abrirFormulario()">
+        <button class="btn btn-primary"  type="button">Añadir Factura</button>
+      </a></th>
+
+  </tr>
+    <tr>
+      <th>NUMERO</th>
+      <th>FECHA</th>
+      <th colspan="2">ACCIONES</th>
+    </tr>
+    <tr *ngFor="let fac of facturas;let index=index"> 
+
+      <td>{{fac.NUMERO}}</td>
+      <td>{{fac.FECHA  | date:'dd/MM/yyyy'}}
+      </td>
+      <td> <button type="button" class="btn btn-danger" (click)="abrirMensajeConfirm($event,fac)"><i class="fa fa-minus-circle"></i></button></td> 
+      <td> <button type="button" class="btn btn-danger" (click)="getDetalle($event,fac.ID)">VER  DETALLE</button></td> 
+
+    </tr>
+  </table>

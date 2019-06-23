@@ -1,0 +1,21 @@
+
+<div class="container">
+    <app-comentario-add (onNew)="nuevoComentario($event)"></app-comentario-add>
+    <div class="row align-items-center" *ngFor="let c of comentario; let index=index">
+      <div class="col-md-2 col-sm-4 mt-4 ">
+          <img src="../../../assets/generales/fondo.jpg"  class="user rounded-circle " >
+          
+      </div>
+          <div class="col-md-8 col-sm-6 mt-4 ml-2" >
+           
+
+            <div class="jumbotron jumbotron-fluid comentario">
+                <p>{{c.nombre}} {{c.apellidos}} <span class="float-right">{{c.FECHA| date:'dd/MM/yyyy'}}</span></p>
+                <p>{{c.COMENTARIO}}</p>
+                <hr>             
+                <ngb-rating [rate]="c.PUNTAJE"></ngb-rating>
+            </div>
+          </div>
+  </div>
+    
+</div>

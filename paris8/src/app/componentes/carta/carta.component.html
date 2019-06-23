@@ -1,0 +1,52 @@
+<div class="container mt-4">
+<div class="row">
+    <div class="col-md-10 col-sm-10 mt-4">
+            <div class="row">
+                    <div class="col-md-3 col-sm-6 mt-4" *ngFor="let producto of listaProducto ; let element_id=index">
+                        <div class="producto">
+                            <div class="imagen">
+                                <div class="descripcion">
+                                        <h5>{{producto.NOMBREPRODUCTO}}({{producto.PRECIO}} €)</h5>
+                            <button type="button" class="btn btn-outline-secondary mr-2 mb-2  btn-sm"  placement="right"
+        ngbPopover="{{producto.DESCRIPCION}}" popoverTitle="Precio sin IVA">
+  Ver descripcion
+</button>
+<img src="../../../assets/productos/{{producto.FOTO}}" > 
+
+                                <input [id]=element_id  #name type="number" min="1" max="50" class="form-control mt-2" 
+                                    [(ngModel)]="producto.cantidad" name="cantidad" 
+                                    onkeypress="return (event.charCode == 8 || event.charCode == 0) ? 
+                                    null : event.charCode >= 48 && event.charCode <= 57"  />
+                                <button class="btn btn-danger mt-2" (click)="anadirCarrito(producto, name)">Añadir a Carrito</button>
+                            </div>
+            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </div>
+    <div class="col-sm-2 mt-4 pt-4">
+            <div>
+                <H3>Carrito de Compras</H3>
+            </div>
+            <div *ngIf="existeCarrito">
+                <div *ngFor="let p of listaCarrito ; let element_id=index">
+<p>{{p.CANTIDAD}} X  {{(p.CANTIDAD*p.PRECIO+(p.CANTIDAD*p.PRECIO*(p.TIPOIVA)/100)).toFixed(2)/p.CANTIDAD}} €  {{p.NOMBRE}}</p>
+   <p>{{(p.CANTIDAD*p.PRECIO+(p.CANTIDAD*p.PRECIO*(p.TIPOIVA)/100)).toFixed(2)}} €  
+       <button class="btn btn-outline-secondary mt-2" (click)="abrirMensajeConfirm(p, element_id)">X</button>
+   </p>
+
+
+                </div>
+                <div>
+                    <h3>TOTAL A PAGAR</h3>
+                    <p>{{totalPagar}}</p>
+                </div>
+                <button type="button" class="btn btn-danger" (click)="comprar($event,listaCarrito)">Comprar</button>
+            </div>
+<p *ngIf="!existeCarrito">Carrito vacio</p>
+    </div>
+</div>
+    
+   
+</div>

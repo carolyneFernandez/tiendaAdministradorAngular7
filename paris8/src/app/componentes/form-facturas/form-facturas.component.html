@@ -1,0 +1,41 @@
+<div class="container">
+  <form class="form-horizontal" #FacturaForm="ngForm" (ngSubmit)="onSubmit(FacturaForm.value)">
+      <div class="form-group">
+
+        <label>NUMERO:</label><span class="obligatorio">*</span>
+        <input (keypress)="permitirSoloNumero($event)" placeholder="Introduce un NUMERO" onpaste="return false" oncopy="return false"
+        ondragstart="return false" ondrop="return false"
+        class="form-control" required [(ngModel)]="factura.NUMERO" name="NUMERO" #NUMERO="ngModel">
+        <div [hidden]="NUMERO.valid || NUMERO.pristine" class="alert alert-danger">
+            El NUMERO es obligatorio
+        </div>
+      </div>  
+      
+      <div class="form-group">
+        <label class="control-label" for="ID_CLIENTE">DNI CLIENTE:</label><span class="obligatorio">*</span>
+        <div class="col-sm-10">          
+          
+          <select  [(ngModel)]="factura.ID_CLIENTE" name="ID_CLIENTE" #ID_CLIENTE="ngModel" (ngModelChange)="seleccion($event)">
+                <option *ngFor="let op of listaPer"  [ngValue]="op.id">
+                    {{op.nombre}} - {{op.dni}}
+                </option>
+          </select>
+          <div *ngIf="!clienteElegido"  class="alert alert-danger"> 
+              Debes elegir un cliente
+            </div> 
+        </div>
+      </div>
+
+      <div class="form-group">
+        <button class="btn btn-primary mr-4" type="submit"  [disabled]="!FacturaForm.valid">
+          {{textoBoton}}
+        </button>
+       
+        <a (click)="activeModal.dismiss('cancelar')">
+          <button class="btn btn-secondary" type="submit">
+            Cancelar
+          </button>
+        </a>
+      </div>
+  </form>
+</div>

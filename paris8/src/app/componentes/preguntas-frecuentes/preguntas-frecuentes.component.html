@@ -1,0 +1,119 @@
+  <div class="modal-body" (click)="isCollapsed = !isCollapsed"
+  [attr.aria-expanded]="!isCollapsed" aria-controls="tipodescuento">
+  <div class="card">
+      <div class="card-header">
+          ¿Tipos de descuento?
+      </div>
+      <div id="tipodescuento" [ngbCollapse]="isCollapsed">
+          <div class="card">
+            <div class="card-body">
+             <p>Restaurantes.com negocia para ti tres tipos de descuento con los restaurantes: 
+               carta, menú y cuenta.</p>
+               <ul>
+                <li>Un descuento sobre la carta significa que se aplicará el descuento marcado sobre 
+                    los platos elegidos de la carta del restaurante. Normalmente no incluye ni IVA ni 
+                    bebidas y para poder disfrutar de tu descuento tendrás que pedir un primero y un segundo. </li>
+                <li> Un descuento sobre el menú significa que se aplicará el descuento 
+                  marcado sobre el precio de un menú fijo que ofrece el restaurante. 
+                  Normalmente no incluye ni IVA ni bebidas.
+                  </li>
+                  <li> Un descuento sobre la cuenta significa que se aplicará el descuento 
+                    marcado sobre el importe de la cuenta final.
+                  </li>
+               </ul>
+               
+               
+             
+          </div>
+        </div>
+    </div>
+  </div>
+  </div>
+  <div class="modal-body" (click)="isCollapsed1 = !isCollapsed1"
+  [attr.aria-expanded]="!isCollapsed1" aria-controls="descuento">
+  <div class="card">
+      <div class="card-header">
+          ¿Puedo modificar mi reserva?
+      </div>
+      <div id="descuento" [ngbCollapse]="isCollapsed1">
+          <div class="card">
+            <div class="card-body">
+<p>
+    Las reservas son confirmadas. Si existe algún cambio en tus planes, debes cancelarla cuanto antes y hacer una nueva. 
+    O si lo deseas, puedes llamar a Atención al Cliente para que modifiquemos tu reserva.</p>
+               
+             
+          </div>
+        </div>
+    </div>
+  </div>
+  </div>
+  <div class="modal-body" (click)="isCollapsed2 = !isCollapsed2"
+  [attr.aria-expanded]="!isCollapsed2" aria-controls="cancelar">
+  <div class="card">
+      <div class="card-header">
+          ¿Cómo puedo cancelar mi reserva?
+      </div>
+      <div id="cancelar" [ngbCollapse]="isCollapsed2">
+          <div class="card">
+            <div class="card-body">
+             <p>
+                Puedes cancelar tu reserva a través del enlace que encontrarás en el e-mail de confirmación, a través de “mis reservas” en tu perfil o llamando a nuestro teléfono de Atención al Cliente (91 544 88 07) . 
+                En cuanto sepas que no podrás ir, por favor, cancela tu reserva lo antes posible.</p>
+               
+               
+             
+          </div>
+        </div>
+    </div>
+  </div>
+  </div>
+  <div class="modal-body" (click)="isCollapsed3 = !isCollapsed3"
+  [attr.aria-expanded]="!isCollapsed1" aria-controls="descuento">
+  <div class="card">
+      <div class="card-header">
+          ¿Qué pasa si no cancelo y no puedo ir al restaurante?      </div>
+      <div id="descuento" [ngbCollapse]="isCollapsed3">
+          <div class="card">
+            <div class="card-body">
+             <p>Recuerda que esto perjudica gravemente al restaurante y a los demás usuarios de paris8.com
+                ya que nuestro servicio se basa en ayudar a los restaurantes a llenar sus mesas. Una mesa reservada 
+                para ti, ¡se queda fría si no vas!</p>
+             
+          </div>
+        </div>
+    </div>
+  </div>
+  </div>
+  <div class="modal-body" (click)="isCollapsed4 = !isCollapsed4"
+  [attr.aria-expanded]="!isCollapsed1" aria-controls="imprimir">
+  <div class="card">
+      <div class="card-header">
+          ¿Debo imprimir la confirmación de reserva y presentarla en el restaurante?
+        </div>
+      <div id="imprimir" [ngbCollapse]="isCollapsed4">
+          <div class="card">
+            <div class="card-body">
+             <p>No. Lo único que deberás hacer es presentarte en el restaurante en el día y hora que hayas efectuado la reserva, dar tu nombre y decir que vienes de parte de Restaurantes.com. Si no has encontrado la respuesta que buscas y todavía tienes dudas, por favor,
+                ponte en contacto con nosotros info@paris8.com o llamanos al +34655179736</p>
+             
+          </div>
+        </div>
+    </div>
+  </div>
+  </div>
+
+  <p>Simple datepicker</p>
+
+<ngb-datepicker #dp [(ngModel)]="model" (navigate)="date = $event.next"></ngb-datepicker>
+
+<hr/>
+
+<button class="btn btn-sm btn-outline-primary mr-2" (click)="selectToday()">Select Today</button>
+<button class="btn btn-sm btn-outline-primary mr-2" (click)="dp.navigateTo()">To current month</button>
+<button class="btn btn-sm btn-outline-primary mr-2" (click)="dp.navigateTo({year: 2013, month: 2})">To Feb 2013</button>
+
+<hr/>
+
+<pre>Month: {{ date.month }}.{{ date.year }}</pre>
+<pre>Model: {{ model | json }}</pre>

@@ -1,0 +1,79 @@
+<div class="container">
+  {{textoCabecera}}
+  
+  <form class="form-horizontal" #formProducto="ngForm" (ngSubmit)="onSubmit(formProducto.value)">     
+    <div class="form-group" hidden="true">
+        <input type="hidden" class="form-control"  [(ngModel)]="producto.CODPRODUCTO" name="CODPRODUCTO" #CODPRODUCTO="ngModel"> 
+    </div>
+      <div class="form-group">
+       
+        <label>Nombre:</label>
+        <input type="text" class="form-control" required [(ngModel)]="producto.NOMBRE" name="NOMBRE" #NOMBRE="ngModel">
+        <div [hidden]="NOMBRE.valid || NOMBRE.pristine" class="alert alert-danger">
+            El nombre es obligatorio
+        </div>
+      </div> 
+      <div class="form-group">
+       
+          <label>DESCRIPCION:</label>
+          <input type="text" class="form-control" required [(ngModel)]="producto.DESCRIPCION" name="DESCRIPCION" #DESCRIPCION="ngModel">
+          <div [hidden]="DESCRIPCION.valid || DESCRIPCION.pristine" class="alert alert-danger">
+              El nombre es obligatorio
+          </div>
+        </div> 
+        <div class="form-group">
+            <label>TIPOIVA:</label>
+            <input type="text" class="form-control" required [(ngModel)]="producto.TIPOIVA"(keypress)="permitirSoloNumero($event)"  
+             name="TIPOIVA" #TIPOIVA="ngModel" onpaste="return false" oncopy="return false"
+             ondragstart="return false" ondrop="return false">
+            <div [hidden]="TIPOIVA.valid || TIPOIVA.pristine" class="alert alert-danger" onpaste="return false" oncopy="return false"
+            ondragstart="return false" ondrop="return false" >
+                El nombre es obligatorio
+            </div>
+        </div> 
+        <div class="form-group">
+
+            <input type="file" name="file" (change)="subiendoando($event)" />
+            <div class="form-group" hidden="true">
+                <input type="hidden" class="form-control"  [(ngModel)]="producto.FOTO" name="FOTO" #FOTO="ngModel"> 
+            </div>
+            <div *ngIf="fotoElegida"  class="alert alert-danger"> 
+                No has elegido ninguna imagen
+              </div> 
+
+        </div> 
+        <div class="form-group">
+            <label>PRECIO:</label>
+            <input type="text" class="form-control" required [(ngModel)]="producto.PRECIO" name="PRECIO" onpaste="return false" oncopy="return false"
+            ondragstart="return false" ondrop="return false" #PRECIO="ngModel" (keypress)="permitirSoloNumero($event)" >
+            <div [hidden]="PRECIO.valid || PRECIO.pristine" class="alert alert-danger">
+                El nombre es obligatorio
+            </div>
+        </div>
+        <div class="form-group">
+            <label>CATEGORIA:</label>
+         
+            <select  [(ngModel)]="producto.CATEGORIA" name="CATEGORIA" #CATEGORIA="ngModel" (ngModelChange)="seleccion($event)" required>
+                <option *ngFor="let op of categorias"  [ngValue]="op.IDCATEGORIA">
+                    {{op.NOMBRE}}
+                </option>
+          </select>
+        </div>
+        <div *ngIf="!exiteCategoria"  class="alert alert-danger"> 
+          Debes elegir un categoria
+        </div> 
+
+
+      <div class="form-group">
+        <button class="btn btn-primary mr-4" type="submit"  [disabled]="!formProducto.valid">
+          {{textoBoton}}
+        </button>
+       
+        <a routerLink="/producto-listar">
+          <button class="btn btn-secondary" type="submit">
+            Cancelar
+          </button>
+        </a>
+      </div>
+  </form>
+</div>

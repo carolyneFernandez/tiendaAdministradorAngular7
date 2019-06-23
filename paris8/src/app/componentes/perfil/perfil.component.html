@@ -1,0 +1,131 @@
+<ngb-tabset>
+
+  <ngb-tab title="Perfil">
+    <ng-template ngbTabContent>
+       
+        <form class="form-horizontal" #personaForm="ngForm">
+            {{textoCabecera}}
+            <div class="form-group" hidden="true">
+               <input type="text" hidden="true" class="form-control" [(ngModel)]="persona.id" name="id" #id="ngModel" id="id">
+           </div>
+           <div class="form-group" hidden="true">
+              <input type="text" hidden="true" class="form-control" [(ngModel)]="persona.clave" name="clave" #clave="ngModel">
+          </div>
+          <div class="form-group" hidden="true">
+              <input type="text" hidden="true" class="form-control" [(ngModel)]="persona.tipo" name="tipo" #tipo="ngModel">
+          </div>
+               <div class="form-group">
+                 <label>NOMBRE: </label>
+                 <input type="text" class="form-control" required [(ngModel)]="persona.nombre" name="nombre" #nombre="ngModel">
+                 <div [hidden]="nombre.valid || nombre.pristine" class="alert alert-danger">
+                   El Nombre es obligatorio
+                 </div>
+               </div>
+           
+               <div class="form-group">
+                 <label>APELLIDOS: </label>
+                 <input type="text" class="form-control" required [(ngModel)]="persona.apellidos" name="apellidos" #apellidos="ngModel">
+                 <div [hidden]="apellidos.valid || apellidos.pristine" class="alert alert-danger">
+                   Los Apellidos son obligatorios
+                 </div>
+               </div>
+               <div class="form-group">
+                 <label>Email: </label>
+                 <input type="text" class="form-control" required [(ngModel)]="persona.email" name="email" #email="ngModel">
+                 <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+                   El Email es obligatorio
+                 </div>
+               </div>
+               
+              <div class="form-group">
+                 <label>DNI</label>
+                 <input type="text" class="form-control" required [(ngModel)]="persona.dni" name="dni" #dni="ngModel" (keypress)="PermisoSoloLetrasEspacios">
+                 <div [hidden]="dni.valid || dni.pristine" class="alert alert-danger">
+                   La campo dni es obligatorio
+                 </div>
+                 <div *ngIf="errorDni"  class="alert alert-danger"> 
+                    El dni no es valido
+                  </div>
+               </div>
+        
+           
+               <div>
+                 <button class="btn btn-primary mr-3" type="button" [disabled]="!personaForm.valid" (click)="validar(personaForm.value)">
+                  Salvar
+                </button>
+               </div>
+           
+             </form>
+           
+
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab title="Contraseña">
+      <ng-template ngbTabContent>
+        <form class="form-horizontal" #personaFormClave="ngForm">
+            <div class="form-group" hidden="true">
+                <input type="text" hidden="true" class="form-control" [(ngModel)]="persona.id" name="id" #id="ngModel" id="id">
+            </div>
+          <div class="form-group" hidden="true">
+              <input type="text" hidden="true" class="form-control" [(ngModel)]="persona.clave" name="claveold" #claveold="ngModel">
+          </div>
+          <div class="form-group">
+              <label>Contraseña: </label>
+              <input type="password" class="form-control" required [(ngModel)]="persona.clave1" name="clave1" #clave1="ngModel">
+              <div [hidden]="clave1.valid || clave1.pristine" class="alert alert-danger">
+                La clave antigua es obligatoria
+              </div>
+                
+              
+            </div>
+          <div class="form-group">
+                <label>Nueva Contraseña: </label>
+                <input type="password" class="form-control" required [(ngModel)]="persona.clave2" name="clave" #clave="ngModel">
+                <div [hidden]="clave.valid || clave.pristine" class="alert alert-danger">
+                  Debes poner la nueva clave es obligatorio
+                </div>
+          </div>
+          
+          <div>
+              <button class="btn btn-primary mr-3" type="button" [disabled]="!personaFormClave.valid" (click)="validarClave(personaFormClave.value)">
+               Salvar
+             </button>
+            </div>
+        </form>
+
+      </ng-template>
+  </ngb-tab>
+  <ngb-tab title="FACTURAS">
+    
+      <ng-template ngbTabContent>
+        <div *ngIf="existeFactura">
+            <table class="table table-bordered table-responsive-md table-striped text-center mt-4">
+                <tr>
+                  <th>ID</th>
+                  <th>NUMERO</th>
+                  <th>FECHA</th>
+                  <th>DESCARGAS</th>
+                  </tr>
+                  <tr *ngFor="let fac of listarFacturas;let index=index"> 
+                    <td>{{fac.ID}}</td>
+              
+                    <td>{{fac.NUMERO}}</td>
+                    <td>{{fac.FECHA  | date:'dd/MM/yyyy'}}
+                    </td>
+                    <td>
+                      <button type="button" class="btn btn-danger" (click)="mostrarForm(fac.ID)">
+                      <span  *ngIf="!ver"> <i class="fa fa-eye"></i></span> <span *ngIf="ver"><i class="fa fa-eye-slash"></i></span>
+                    </button>
+                  </td>           
+                  </tr>
+                </table>
+        </div>
+          <p  *ngIf="!existeFactura">No tienes facturas por el momento, realiza una compra y te mandaremos una</p>
+            <div *ngIf="muestraFormulario">
+                <app-detallecompra [id]="idFactura"></app-detallecompra>
+
+            </div>
+      </ng-template>
+    </ngb-tab>
+
+</ngb-tabset>

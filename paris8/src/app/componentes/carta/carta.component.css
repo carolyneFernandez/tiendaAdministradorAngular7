@@ -1,0 +1,24 @@
+.producto .imagen img {
+    width: 100%;
+    height: 130px;
+
+}
+.contenidoProducto h3{
+    font-size:15px;
+    font-weight:600;
+    text-transform:capitalize;
+}
+.imagen{
+    
+    border: outset;
+}
+.descripcion{
+    text-align: center;
+}
+.descripcion h5{
+    text-transform: uppercase;
+    text-align: center;
+    background: gray;
+    color: white;
+    padding: 3%;
+}

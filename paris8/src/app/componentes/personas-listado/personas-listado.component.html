@@ -1,0 +1,37 @@
+<div class="container mt-2">
+  <table class="table table-bordered table-responsive-md table-striped text-center">
+    <thead>
+        <tr>
+            <th colspan="6">En este sector podras ver la lista de todas las facturas y podras acceder a sus detalles </th>
+            <th  colspan="2"><a  routerLink="/personas-add/-1" >
+              <button class="btn btn-primary"  type="button">Añadir Persona</button>
+            </a></th>
+        
+          </tr>
+      <tr>
+        <th>ID</th>
+        <th>DNI</th>
+        <th>NOMBRE</th>
+        <th>APELLIDOS</th>
+        <th>EMAIL</th>
+        <th>ROL</th>
+        <th>EDITAR</th>
+        <th>BORRAR</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of listaPer">
+        <td>{{p.id}}</td>
+        <td>{{p.dni}}</td>
+        <td>{{p.nombre}}</td>
+        <td>{{p.apellidos}}</td>
+        <td>{{p.email}}</td>
+        <td>{{p.NOMBRE}}</td>
+        <td> <button type="button" class="btn btn-primary" (click)="edit($event,p.id)"><i class="fa fa-pencil"></i></button></td> 
+        <td> <button type="button" class="btn btn-danger" (click)="abrirMensajeConfirm($event,p)"><i class="fa fa-minus-circle"></i></button></td> 
+
+      </tr>
+    </tbody>
+
+  </table>
+</div>

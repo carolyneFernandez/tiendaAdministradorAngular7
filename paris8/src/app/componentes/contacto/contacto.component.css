@@ -1,0 +1,55 @@
+.map-container-6{
+    overflow:hidden;
+    padding-bottom:56.25%;
+    position:relative;
+    height:0;
+    }
+.map-container-6 iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+}
+
+agm-map { 
+    height: 300px; 
+   }
+
+/*********CSS DE FOOTER****/
+   footer.nb-footer {
+    background: #222;
+    border-top: 4px solid #b78c33; 
+}
+    footer.nb-footer .about {
+    margin: 0 auto;
+    margin-top: 40px;
+    max-width: 1170px;
+    text-align: center; 
+}
+    footer.nb-footer .about p,footer.nb-footer .about h2 {
+    font-size: 13px;
+    color: #999;
+    margin-top: 30px;
+ }
+    footer.nb-footer .about .social-media {
+    margin-top: 15px;
+ }
+ footer.nb-footer .about .social-media ul li{
+    list-style: none;
+
+ }
+footer.nb-footer .about .social-media ul li a {
+    display: inline-block;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    border-radius: 50%;
+    font-size: 16px;
+    color: #b78c33;
+    border: 1px solid rgba(255, 255, 255, 0.3); }
+footer.nb-footer .about .social-media ul li a:hover {
+    background: #b78c33;
+    color: #fff;
+    border-color: #b78c33; 
+}

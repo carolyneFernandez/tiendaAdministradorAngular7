@@ -1,0 +1,30 @@
+<p>DETALLE DE LA FACTURA</p>
+<table class="table table-bordered table-responsive-md table-striped text-center">
+
+    <tr>
+      <th>CANTIDAD</th>
+      <th>CONCEPTO</th>
+      <th>PRECIO</th>
+      <th>TIPO IVA</th>
+      <th>IVA</th>
+      <th>TOTAL</th>
+   
+    </tr>
+    <tr *ngFor="let detalle of listaDetalle;let index=index"> 
+    
+      <td contenteditable="true" (click)="entra($event,detalle.ID)" (blur)="updateList(index,'CANTIDAD', $event,detalle.ID)">
+          {{detalle.CANTIDAD}}
+      </td>
+      <td>{{detalle.NOMBRE}}</td>
+      <td>{{detalle.PRECIO}}</td>
+      <td>{{detalle.TIPOIVA}}</td>
+      <td>{{(detalle.CANTIDAD*detalle.PRECIO*(detalle.TIPOIVA)/100).toFixed(2)}}</td>
+      <td>{{(detalle.CANTIDAD*detalle.PRECIO+(detalle.CANTIDAD*detalle.PRECIO*(detalle.TIPOIVA)/100)).toFixed(2)}}</td>
+    
+    </tr>
+    <tr>
+        <td  colspan="4">Totales</td>
+        <td>{{ sumaIVA.toFixed(2)}}</td>
+        <td>{{ sumaTotal.toFixed(2)}}</td>
+      </tr>
+  </table>

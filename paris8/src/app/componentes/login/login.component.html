@@ -1,0 +1,41 @@
+<div class="modal-header">
+    <h4 class="modal-title">Identificación</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('cancelar')">
+    </button>
+  </div>
+<div class="modal-body">
+  <p>Introduzca sus datos</p>
+  <p *ngIf="loginIncorrecto" class="text-danger">Usuario y/clave INCORRECTOS, por favor proceda de nuevo</p>
+
+  <form class="form-horizontal" #loginForm="ngForm">
+    <div class="form-group">
+      <label>Email: </label>
+      <input type="text" class="form-control" required [(ngModel)]="login.email" name="email" #email="ngModel">
+      <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+        El correo es obligatorio
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Clave: </label>
+      <input type="text" class="form-control" required [(ngModel)]="login.clave" name="clave" #clave="ngModel">
+      <div [hidden]="clave.valid || clave.pristine" class="alert alert-danger">
+        La clave es obligatoria
+      </div>
+    </div>
+    <span class="registro"> <a  class="nav-item nav-link active" routerLink="/registro"
+      routerLinkActive="active" (click)="activeModal.dismiss('cancelar')">* Si aun no tienes una cuenta registrate aqui <span class="sr-only">(current)</span></a>
+ </span>
+
+    <div class="modal-footer">
+      
+      <button class="btn btn-primary mr-3" type="button" [disabled]="!loginForm.valid" (click)="validar(loginForm.value)">
+        Entrar
+      </button>
+      <button class="btn btn-secondary" type="button" (click)="activeModal.dismiss('cancelar')">
+        Cancelar
+      </button>
+    </div>
+
+  </form>
+
+</div>

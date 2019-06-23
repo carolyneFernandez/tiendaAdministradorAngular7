@@ -1,0 +1,36 @@
+<div class="container mt-2">
+  <table class="table table-bordered table-responsive-md table-striped text-center">
+    <thead>
+        <tr>
+            <th colspan="6">En este sector podremos editar todo lo relacionado con los productos, sus precio su iva, subir imagenes etc.. </th>
+            <th  colspan="2"><a  routerLink="/producto-add/-1" >
+              <button class="btn btn-primary"  type="button">Añadir Producto</button>
+            </a></th>
+        
+          </tr>
+      <tr>
+        <th>NOMBRE</th>
+        <th>DESCRIPCION</th>
+        <th>CATEGORIA</th>
+        <th>PRECIO</th>
+        <th>TIPO IVA </th>
+        <th>EDITAR </th>
+        <th>BORRAR </th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of listaProducto">
+        <td>{{p.NOMBREPRODUCTO}}</td>
+        <td>{{p.DESCRIPCION}}</td>
+        <td>{{p.NOMBRECATEGORIA}}</td>
+        <td>{{p.PRECIO}}</td>
+        <td>{{p.TIPOIVA}}</td>
+        <td> <button type="button" class="btn btn-primary" (click)="edit($event,p.CODPRODUCTO)"><i class="fa fa-pencil"></i></button></td> 
+        <td> <button type="button" class="btn btn-danger" (click)="abrirMensajeConfirm($event,p)"><i class="fa fa-minus-circle"></i></button></td> 
+
+      </tr>
+    </tbody>
+
+  </table>
+</div>

@@ -1,0 +1,14 @@
+<div [ngClass]="{'rojo':tipo=='ALERT','blue':tipo=='AVISO',confirm:tipo=='CONFIRM'}">
+    <div class="modal-header">
+        <h4 class="modal-title">{{header}}</h4>
+      </div>
+    <div class="modal-body" >
+      <p>{{textoDeAviso}}</p>
+      <button type="button"  class="accept" aria-label="Close" (click)="activeModal.close('OK')">
+        Aceptar
+    </button>
+    <button type="button"  aria-label="Close" class="cancel ml-2"  (click)="activeModal.dismiss('cancelar')" *ngIf="botonCance" >
+        Cancelar
+    </button>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+<table class="table table-bordered table-responsive-md table-striped text-center">
+  <tr>
+      <th colspan="7">En este sector podras ver el detalle de la factura seleccionada y añadir detalles, modificarlos y eliminarlos </th>
+      <th>
+          <button class="btn btn-primary" (click)="addDetalle()" type="button">Añadir Detalle</button>
+      </th>
+    </tr>
+  <tr>
+    <th>CANTIDAD</th>
+    <th>CONCEPTO</th>
+    <th>PRECIO</th>
+    <th>TIPO IVA</th>
+    <th>IVA</th>
+    <th>TOTAL</th>
+    <th>BORRAR</th>
+    <th>EDITAR</th>
+
+  </tr>
+  <tr *ngFor="let detalle of listaDetalle;let index=index"> 
+  
+    <td contenteditable="true" (click)="entra($event,detalle.ID)" (blur)="updateList(index,'CANTIDAD', $event,detalle.ID)">
+        {{detalle.CANTIDAD}}
+    </td>
+    <td>{{detalle.NOMBRE}}</td>
+    <td>{{detalle.PRECIO}}</td>
+    <td>{{detalle.TIPOIVA}}</td>
+    <td>{{(detalle.CANTIDAD*detalle.PRECIO*(detalle.TIPOIVA)/100).toFixed(2)}}</td>
+    <td>{{(detalle.CANTIDAD*detalle.PRECIO+(detalle.CANTIDAD*detalle.PRECIO*(detalle.TIPOIVA)/100)).toFixed(2)}}</td>
+    <td> <button type="button" class="btn btn-danger" (click)="abrirMensajeConfirm($event,detalle)"><i class="fa fa-minus-circle"></i></button></td> 
+ <td> <button type="button" class="btn btn-primary" (click)="mod($event,detalle)"><i class="fa fa-edit"></i></button></td> 
+
+  </tr>
+  <tr>
+      <td  colspan="4">Totales</td>
+      <td>{{ sumaIVA.toFixed(2)}}</td>
+      <td>{{ sumaTotal.toFixed(2)}}</td>
+    </tr>
+</table>

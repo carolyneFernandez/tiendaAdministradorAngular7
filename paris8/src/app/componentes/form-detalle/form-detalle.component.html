@@ -1,0 +1,47 @@
+<div class="container">
+  <form class="form-horizontal" #detalleForm="ngForm" (ngSubmit)="onSubmit(detalleForm.value)">
+    <div class="form-group" hidden="true">
+      <input type="hidden" class="form-control"  [(ngModel)]="detalle.ID" name="ID" #ID="ngModel"> 
+    </div>
+  <div class="form-group" hidden="true">
+    <input type="hidden" class="form-control"  [(ngModel)]="detalle.ID_FACTURA" name="ID_FACTURA" #ID_FACTURA="ngModel"> 
+</div>
+      <div class="form-group">
+
+          <label>Cantidad:</label>
+          <input (keypress)="permitirSoloNumero($event)" placeholder="Introduce un Numero" class="form-control" required 
+          [(ngModel)]="detalle.CANTIDAD" name="CANTIDAD" #CANTIDAD="ngModel" onpaste="return false" oncopy="return false"
+          ondragstart="return false" ondrop="return false">
+          <div [hidden]="CANTIDAD.valid || CANTIDAD.pristine" class="alert alert-danger">
+            Valor de la cantidad es obligatorio
+          </div>
+        </div> 
+      
+
+        <div class="form-group">
+          <label class="control-label" for="producto">Elija el producto:</label>
+          <div class="col-sm-10">          
+              <select  [(ngModel)]="detalle.CODPRODUCTO" name="CODPRODUCTO" #CODPRODUCTO="ngModel" 
+               (ngModelChange)="seleccion($event)" >
+                  <option *ngFor="let op of producto"  [ngValue]="op.CODPRODUCTO">
+                      {{op.NOMBREPRODUCTO}}
+                    </option>
+                  </select>
+              <div *ngIf="!productoElegido"  class="alert alert-danger"> 
+                No has elegido un producto  
+              </div> 
+              
+          </div>
+        </div>
+
+      <div class="form-group">
+        <button class="btn btn-primary mr-4" type="submit"  [disabled]="!detalleForm.valid">
+          {{textoBoton}}
+        </button>
+        <button class="btn btn-secondary" type="button" (click)="activeModal.dismiss('cancelar')">
+          Cancelar
+        </button>
+    
+      </div>
+  </form>
+</div>

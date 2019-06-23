@@ -1,0 +1,19 @@
+<div class="container">
+    <form class="form-horizontal" #categoriaForm="ngForm" (ngSubmit)="onSubmit(categoriaForm.value)">
+  
+        <div class="form-group">
+  
+          <label>Nombre:</label>
+          <input type="text" class="form-control" required [(ngModel)]="categoria.NOMBRE" name="NOMBRE" #NOMBRE="ngModel">
+          <div [hidden]="NOMBRE.valid || NOMBRE.pristine" class="alert alert-danger">
+              El nombre es obligatorio
+          </div>
+        </div>  
+        <div class="form-group">
+          <button class="btn btn-primary mr-4" type="submit"  [disabled]="!categoriaForm.valid">
+            Añadir
+          </button>
+        
+        </div>
+    </form>
+  </div>
